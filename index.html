@@ -14,10 +14,12 @@
             Main-thread load per frame:
             <output id="load-value">0 ms</output>
           </label>
-          <input id="load" type="range" min="0" max="30" step="1" value="0" />
+          <input id="load" type="range" min="0" max="100" step="1" value="0" />
           <div class="ui-health">
             <span class="spinner" id="spinner"></span>
-            <span class="ui-lag">UI lag: <strong id="ui-lag">0.0</strong> ms</span>
+            <span class="ui-lag"
+              >UI lag: <strong id="ui-lag">0.0</strong> ms</span
+            >
           </div>
         </div>
       </header>
@@ -29,9 +31,18 @@
             <canvas id="left-canvas"></canvas>
           </div>
           <dl class="metrics">
-            <div><dt>FPS</dt><dd id="left-fps">—</dd></div>
-            <div><dt>Frame time (avg)</dt><dd id="left-avg">—</dd></div>
-            <div><dt>Dropped frames</dt><dd id="left-dropped">—</dd></div>
+            <div>
+              <dt>FPS</dt>
+              <dd id="left-fps">—</dd>
+            </div>
+            <div>
+              <dt>Frame time (avg)</dt>
+              <dd id="left-avg">—</dd>
+            </div>
+            <div>
+              <dt>Dropped frames</dt>
+              <dd id="left-dropped">—</dd>
+            </div>
           </dl>
         </section>
 
@@ -42,9 +53,18 @@
             <div class="fallback" id="right-fallback" hidden></div>
           </div>
           <dl class="metrics">
-            <div><dt>FPS</dt><dd id="right-fps">—</dd></div>
-            <div><dt>Frame time (avg)</dt><dd id="right-avg">—</dd></div>
-            <div><dt>Dropped frames</dt><dd id="right-dropped">—</dd></div>
+            <div>
+              <dt>FPS</dt>
+              <dd id="right-fps">—</dd>
+            </div>
+            <div>
+              <dt>Frame time (avg)</dt>
+              <dd id="right-avg">—</dd>
+            </div>
+            <div>
+              <dt>Dropped frames</dt>
+              <dd id="right-dropped">—</dd>
+            </div>
           </dl>
         </section>
       </main>
