@@ -3,10 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>offscreen-canvas-worker</title>
+    <title>Main thread vs OffscreenCanvas worker</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header class="topbar">
+        <h1>Three.js: Main thread <span>vs</span> OffscreenCanvas worker</h1>
+        <div class="controls">
+          <label for="load">
+            Main-thread load per frame:
+            <output id="load-value">0 ms</output>
+          </label>
+          <input id="load" type="range" min="0" max="30" step="1" value="0" />
+          <div class="ui-health">
+            <span class="spinner" id="spinner"></span>
+            <span class="ui-lag">UI lag: <strong id="ui-lag">0.0</strong> ms</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="stage">
+        <section class="panel">
+          <div class="panel-label main">Main thread</div>
+          <div class="canvas-wrap">
+            <canvas id="left-canvas"></canvas>
+          </div>
+          <dl class="metrics">
+            <div><dt>FPS</dt><dd id="left-fps">—</dd></div>
+            <div><dt>Frame time (avg)</dt><dd id="left-avg">—</dd></div>
+            <div><dt>Dropped frames</dt><dd id="left-dropped">—</dd></div>
+          </dl>
+        </section>
+
+        <section class="panel">
+          <div class="panel-label worker">Worker (OffscreenCanvas)</div>
+          <div class="canvas-wrap">
+            <canvas id="right-canvas"></canvas>
+            <div class="fallback" id="right-fallback" hidden></div>
+          </div>
+          <dl class="metrics">
+            <div><dt>FPS</dt><dd id="right-fps">—</dd></div>
+            <div><dt>Frame time (avg)</dt><dd id="right-avg">—</dd></div>
+            <div><dt>Dropped frames</dt><dd id="right-dropped">—</dd></div>
+          </dl>
+        </section>
+      </main>
+
+      <p class="hint">
+        Drag the slider to burn CPU on the main thread each frame. The left
+        canvas and this page's UI stutter; the worker canvas keeps rendering
+        smoothly.
+      </p>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
