@@ -31,7 +31,6 @@ export function createParticleScene(
   const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
   camera.position.z = 6;
 
-  // Distribute points in a spherical shell with a per-point color gradient.
   const positions = new Float32Array(PARTICLE_COUNT * 3);
   const colors = new Float32Array(PARTICLE_COUNT * 3);
   const color = new THREE.Color();

@@ -43,7 +43,6 @@ export class FrameStats {
     this.windowMs += delta;
     if (delta > DROP_THRESHOLD_MS) this.dropped++;
 
-    // Recompute the published snapshot roughly every 250ms.
     if (this.windowMs >= 250) {
       this.snap = {
         fps: (this.frames * 1000) / this.windowMs,

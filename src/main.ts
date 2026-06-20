@@ -20,7 +20,6 @@ const uiLagEl = $("ui-lag");
 const TARGET_FRAME_MS = 1000 / 60;
 const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-/** Render a stats snapshot into the panel identified by `prefix`. */
 function renderStats(prefix: "left" | "right", s: StatsSnapshot) {
   $(`${prefix}-fps`).textContent = s.fps.toFixed(0);
   $(`${prefix}-avg`).textContent = `${s.avgMs.toFixed(1)} ms`;
